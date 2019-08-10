@@ -70,10 +70,10 @@ export default {
   width 500px
   height 400px
   background-color white
-  margin 0 auto
-  position relative
-  top 300px
-
+  position absolute
+  left 50%
+  top 50%
+  transform translate(-50%,-50%)
 h1
   text-align center
   position relative
@@ -82,7 +82,7 @@ h1
 
 .form_head
   margin 0px auto
-  height 100px
+  height 90px
   background #199262
 
 .form_body
