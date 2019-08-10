@@ -2,6 +2,12 @@
 
 ### blogger-vue
 
+安装公共包
+
+``` javascript
+npm install
+```
+
 运行命令
 
 ``` javascript
