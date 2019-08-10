@@ -69,7 +69,7 @@ export default {
 .mid_box
   width 500px
   height 400px
-  background-color white
+  background:rgba(255, 255, 255, 0.5)
   position absolute
   left 50%
   top 50%
@@ -83,7 +83,7 @@ h1
 .form_head
   margin 0px auto
   height 90px
-  background #199262
+  background #39669d
 
 .form_body
   position relative
@@ -92,4 +92,5 @@ h1
 
 .button
   width 180px
+  background #39669d
 </style>
