@@ -5,10 +5,7 @@
       id="login_form"
       class="mid_box"
     >
-      <div
-        class="form_head"
-        style="width:500px;"
-      >
+      <div class="form_head">
         <h1 style>
           <i class="el-icon-message-solid" /> Yg Login
         </h1>
@@ -43,9 +40,12 @@
               class="button"
               type="info"
             >
-              <router-link :to="{name:'Resign'}">
-                注册
-              </router-link>
+              <!-- <router-link
+                :to="{name:'Resign'}"
+                class="res"
+              > -->
+              注册
+              <!-- </router-link> -->
             </el-button>
           </el-form-item>
         </el-form>
@@ -56,6 +56,9 @@
 
 <script>
 export default {
+  metaInfo: {
+    title: 'login'
+  },
   data () {
     return {
       id: '',
@@ -81,16 +84,19 @@ h1
   font 30px Extra large
 
 .form_head
+  width 500px
   margin 0px auto
   height 90px
   background #39669d
 
 .form_body
-  position relative
-  top 45px
-  padding 20px
+  position absolute
+  top 145px
+  left 8px
 
 .button
   width 180px
   background #39669d
+  .res
+    color #fff
 </style>

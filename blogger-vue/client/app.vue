@@ -8,6 +8,9 @@
 // import Login from '../views/login/login'
 
 export default {
+  metaInfo: {
+    title: 'blogger vue'
+  }
   // components: {
   //   Login
   // }

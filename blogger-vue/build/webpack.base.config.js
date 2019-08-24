@@ -4,10 +4,11 @@ const VueLoaderOptions = require('./vue-loader')
 const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
-  entry: path.resolve(__dirname, '../client/index.js'), // 入口js文件
+  entry: path.resolve(__dirname, '../client/client-entry.js'), // 入口js文件
   output: { // webpack打包输出js文件的路径及文件名
     filename: 'bundle.[hash:8].js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../public'),
+    publicPath: 'http://127.0.0.1:8010/public/'
   },
   mode: process.env.NODE_ENV || 'production', // 判断其环境
   module: {
@@ -52,15 +53,15 @@ const config = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'resources/media/[name].[hash:8].[ext]'
+          name: 'resources/media/[path][name].[ext]'
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
-          name: 'resources/fonts/[name].[hash:8].[ext]'
+          limit: 80000,
+          name: 'resources/fonts/[path][name].[ext]'
         }
       }
     ]
