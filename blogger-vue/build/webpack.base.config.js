@@ -3,12 +3,23 @@ const VueLoaderOptions = require('./vue-loader')
 
 const isDev = process.env.NODE_ENV === 'development'
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 const config = {
   entry: path.resolve(__dirname, '../client/client-entry.js'), // 入口js文件
   output: { // webpack打包输出js文件的路径及文件名
     filename: 'bundle.[hash:8].js',
     path: path.resolve(__dirname, '../public'),
     publicPath: 'http://127.0.0.1:8010/public/'
+  },
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('client')
+    }
   },
   mode: process.env.NODE_ENV || 'production', // 判断其环境
   module: {

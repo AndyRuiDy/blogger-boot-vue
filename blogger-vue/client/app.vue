@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <router-view />
   </div>
 </template>
@@ -9,7 +9,7 @@
 
 export default {
   metaInfo: {
-    title: 'blogger vue'
+    title: '朱善辉の个人博客'
   }
   // components: {
   //   Login
