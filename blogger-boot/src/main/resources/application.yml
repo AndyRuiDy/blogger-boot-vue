@@ -1,0 +1,58 @@
+server:
+  port: 8089
+  servlet:
+#    context-path: /zhublog
+    compression:
+      enabled: true
+      mime-types: application/javascript,application/json,application/xml,text/html,text/xml,text/plain,text/css,image/*
+
+spring:
+  datasource:
+    #   数据源基本配置
+    username: root
+    password: mysql@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/zblogger?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,self4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  thymeleaf:
+    cache: false
+
+mybatis:
+  # 指定全局配置文件位置
+  config-location: classpath:mybatis/mybatis-config.xml
+  # 指定sql映射文件位置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+# myabtis-plus 设置
+mybatis-plus:
+  # mapper对应的xml文件
+  mapper-locations: classpath*:mybatis/mapper/*.xml
+  # 全局配置
+  global-config:
+    # 控制台是否打印banner（默认是true）
+    banner: false
+    db-config:
+      # 主键类型 auto: “数据库ID自增”，uuid: “32位uuid字符串”，
+      #  id_worker: “分布式全局唯一ID 长整型类型”，id_worker_str: “分布式全局唯一ID 字符串类型”，
+      # input: “全局用户自行输入ID”
+      id-type: uuid
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
